@@ -70,10 +70,11 @@ var highScore = 0;
 var displayHighScore = document.getElementsByTagName('h3')[1];
 //function to update playerscore for every frame
 function updatePlayerScore(){
+  canvasContext.beginPath();
   canvasContext.font = "20px Assistant";
   var displayPlayerScore = "Your score :" + playerScore;
-  canvasContext.fillStyle = 'white';
-  canvasContext.fillText(displayPlayerScore,canvas.width - 100,canvas.height- 50);
+  canvasContext.fillStyle = '	#00FF00';
+  canvasContext.fillText(displayPlayerScore,canvas.width - 150,canvas.height- 40);
 }
 
 function updateHighScore(){
@@ -97,7 +98,7 @@ function HighScore(){
 //Paddle variables
 var cannonImage = new Image;
 cannonImage.src = 'images/cannon.jpg'
-var paddleWidth = 40;
+var paddleWidth = 50;
 var paddleHeight = 60;
 var paddleX = (canvas.width-paddleWidth)/2;
 var paddleY = canvas.height-paddleHeight - groundHeight;
@@ -116,8 +117,8 @@ var bulletArray = [];
 function bullet(){
 
    //position
-   this.x = paddleX + 15;
-   this.y = paddleY- 15;
+   this.x = paddleX + paddleWidth /2 -7;
+   this.y = paddleY- 5;
    this.radius = 3;
 
    this.init = function(){
@@ -472,6 +473,7 @@ if(!gameOver){
 if(!pause){
    moveEverything();
    drawEverything();
+
 }
 ticker++;
 window.requestAnimationFrame(gameLoop);
