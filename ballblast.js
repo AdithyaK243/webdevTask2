@@ -93,7 +93,9 @@ function HighScore(){
   displayHighScore.innerHTML = "High Score :" + highScore;
 }
 
-
+/* if(gameOver){
+updateHighScore();
+} */
 
 //Paddle variables
 var cannonImage = new Image;
@@ -329,7 +331,7 @@ function collision(bullet,bulletIndex){
 
 
 //buttons
-var highscore=document.getElementById('highscore');
+var highScoreButton=document.getElementById('highscore');
 var reset=document.getElementById('reset');
 var pause = false;
 
@@ -357,14 +359,11 @@ document.addEventListener('keydown',function(evt){
 
 //to display highScore
 var highscores = document.getElementsByClassName('highScores')[0];
-highscore.addEventListener("click",function(){
+highScoreButton.addEventListener("click",function(){
+   updateHighScore();
   highscores.style.display = "block";
   HighScore();
-
-    updateHighScore();
-
-
-})
+  })
 
 //when the arrow keys or a,d key is leftPressed
 function keyDownHandler(evt){
